@@ -101,7 +101,7 @@
                         <p class="m-15-0"><b>New York</b></p>
                         <p class="m-15-0 opacity-60">Fri 27 Nov 2016</p>
                         <p class="m-15-0">Praesent tincidunt sed tellus ut rutrum sed vitae justo.</p>
-                        <button class="h-button m-bottom-16 bg-black color-white hover-gray">Buy Tickets</button>
+                        <button class="h-button m-bottom-16 bg-black color-white hover-gray buy-btn-js">Buy Tickets</button>
                     </div>
                 </div>
                 <div class="m-bottom-16 w-8-25 w-full-mobile">
@@ -110,7 +110,7 @@
                         <p class="m-15-0"><b>Paris</b></p>
                         <p class="m-15-0 opacity-60">Sat 28 Nov 2016</p>
                         <p class="m-15-0">Praesent tincidunt sed tellus ut rutrum sed vitae justo.</p>
-                        <button class="h-button m-bottom-16 bg-black color-white hover-gray">Buy Tickets</button>
+                        <button class="h-button m-bottom-16 bg-black color-white hover-gray buy-btn-js">Buy Tickets</button>
                     </div>
                 </div>
                 <div class="m-bottom-16 w-8-25 w-full-mobile">
@@ -119,7 +119,7 @@
                         <p class="m-15-0"><b>San Francisco</b></p>
                         <p class="m-15-0 opacity-60">Sun 29 Nov 2016</p>
                         <p class="m-15-0">Praesent tincidunt sed tellus ut rutrum sed vitae justo.</p>
-                        <button class="h-button m-bottom-16 bg-black color-white hover-gray">Buy Tickets</button>
+                        <button class="h-button m-bottom-16 bg-black color-white hover-gray buy-btn-js">Buy Tickets</button>
                     </div>
                 </div>
             </div>
@@ -142,8 +142,8 @@
             </div>
             <div class="w-1-2 w-full-mobile">
                 <div class="m-bottom-8 flex justify-between flex-col-mobile">
-                    <input type="text" class="h-input w-184 w-full-mobile" placeholder="Name">
-                    <input type="text" class="h-input w-184 w-full-mobile" placeholder="Email">
+                    <input type="text" class="h-input w-full-mobile m-right-8 m-0-mobile" placeholder="Name">
+                    <input type="text" class="h-input w-full-mobile m-left-8 m-0-mobile" placeholder="Email">
                 </div>
                 <input type="text" class="h-input" placeholder="Message">
                 <div class="flex justify-end">
@@ -172,7 +172,45 @@
         </p>
     </footer>
 </div>
-
+<div id="modal" class="fixed z-2 top-0 left-0 right-0 h-full p-top-100 bg-light-grey modal-js hidden">
+    <div class="w-900 mx-auto h-animate-top">
+        <div class="relative p-32-16 bg-light-green">
+            <a href="#" class="absolute top-0 right-0 h-button p-16 color-white hover-gray close-js">
+                <i class="ti-close font-10"></i>
+            </a>
+            <h2 class="letter-spacing-4 text-center color-white">
+                <i class="ti-bag"></i>
+                Tickets
+            </h2>
+        </div>
+        <div class="table w-full p-0-16 bg-white">
+            <p class="m-15-0 color-black">
+                <i class="ti-shopping-cart"></i>
+                Tickets, $15 per person
+            </p>
+            <input type="text" class="h-input" placeholder="How many?">
+            <p class="m-15-0 color-black">
+                <i class="ti-user"></i>
+                Send to
+            </p>
+            <input type="text" class="h-input" placeholder="Enter email">
+            <button class="h-button w-full m-16-0 p-16 bg-light-green color-white hover-gray">
+                <i class="ti-check"></i>
+                PAY
+            </button>
+            <div class="flex justify-between">
+                <button class="h-button m-16-0 bg-red color-white hover-gray close-js">
+                    Close
+                    <i class="ti-close font-10"></i>
+                </button>
+                <p class="m-15-0">
+                    Need
+                    <a href="#" class="color-light-blue">help?</a>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
 <script>
     let sliderIndex = 1;
     const slides = [
@@ -198,6 +236,9 @@
     const slider = document.querySelector('.slider-js');
     const place = document.querySelector('.place-js');
     const placeDesc = document.querySelector('.place-desc-js');
+    const modal = document.querySelector('.modal-js');
+    const buyBtns = document.querySelectorAll('.buy-btn-js');
+    const closeBtns = document.querySelectorAll('.close-js');
 
     // display subNav on mobile
     const handleDisplaySubNav = () => {
@@ -218,6 +259,32 @@
             sliderIndex = 0;
         }
     }, 4000);
+
+    // display modal
+    const hideModal = () => {
+      if (!modal.className.includes(' hidden')) {
+          modal.className = modal.className.concat(' hidden');
+      }
+    };
+
+    const handleDisplayModal = () => {
+        modal.className = modal.className.includes(' hidden') ?
+            modal.className.replace(' hidden', '') : modal.className.concat(' hidden');
+    };
+
+    buyBtns.forEach(buyBtn => {
+        buyBtn.onclick = () => handleDisplayModal();
+    });
+
+    closeBtns.forEach(closeBtn => {
+       closeBtn.onclick = () => handleDisplayModal();
+    });
+
+    window.onclick = (e) => {
+      if (e.target === modal) {
+          hideModal();
+      }
+    };
 </script>
 </body>
 </html>

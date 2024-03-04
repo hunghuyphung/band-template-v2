@@ -85,6 +85,14 @@ img {
     top: 46px;
 }
 
+.left-0 {
+    left: 0;
+}
+
+.right-0 {
+    right: 0;
+}
+
 .bottom-0 {
     bottom: 0;
 }
@@ -99,6 +107,10 @@ img {
 
 .table {
     display: table;
+}
+
+.hidden {
+    display: none;
 }
 
 .flex {
@@ -299,10 +311,6 @@ img {
     margin-right: 16px;
 }
 
-.hide-desktop {
-    display: none;
-}
-
 @media (max-width: 600px) {
     .hide-mobile {
         display: none;
@@ -310,6 +318,10 @@ img {
 
     .inline-block-mobile {
         display: inline-block;
+    }
+
+    .block-mobile {
+        display: block;
     }
 
     .flex-col-mobile {

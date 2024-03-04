@@ -101,7 +101,8 @@
                         <p class="m-15-0"><b>New York</b></p>
                         <p class="m-15-0 opacity-60">Fri 27 Nov 2016</p>
                         <p class="m-15-0">Praesent tincidunt sed tellus ut rutrum sed vitae justo.</p>
-                        <button class="h-button m-bottom-16 bg-black color-white hover-gray buy-btn-js">Buy Tickets</button>
+                        <button class="h-button m-bottom-16 bg-black color-white hover-gray buy-btn-js">Buy Tickets
+                        </button>
                     </div>
                 </div>
                 <div class="m-bottom-16 w-8-25 w-full-mobile">
@@ -110,7 +111,8 @@
                         <p class="m-15-0"><b>Paris</b></p>
                         <p class="m-15-0 opacity-60">Sat 28 Nov 2016</p>
                         <p class="m-15-0">Praesent tincidunt sed tellus ut rutrum sed vitae justo.</p>
-                        <button class="h-button m-bottom-16 bg-black color-white hover-gray buy-btn-js">Buy Tickets</button>
+                        <button class="h-button m-bottom-16 bg-black color-white hover-gray buy-btn-js">Buy Tickets
+                        </button>
                     </div>
                 </div>
                 <div class="m-bottom-16 w-8-25 w-full-mobile">
@@ -119,7 +121,8 @@
                         <p class="m-15-0"><b>San Francisco</b></p>
                         <p class="m-15-0 opacity-60">Sun 29 Nov 2016</p>
                         <p class="m-15-0">Praesent tincidunt sed tellus ut rutrum sed vitae justo.</p>
-                        <button class="h-button m-bottom-16 bg-black color-white hover-gray buy-btn-js">Buy Tickets</button>
+                        <button class="h-button m-bottom-16 bg-black color-white hover-gray buy-btn-js">Buy Tickets
+                        </button>
                     </div>
                 </div>
             </div>
@@ -262,9 +265,9 @@
 
     // display modal
     const hideModal = () => {
-      if (!modal.className.includes(' hidden')) {
-          modal.className = modal.className.concat(' hidden');
-      }
+        if (!modal.className.includes(' hidden')) {
+            modal.className = modal.className.concat(' hidden');
+        }
     };
 
     const handleDisplayModal = () => {
@@ -277,13 +280,13 @@
     });
 
     closeBtns.forEach(closeBtn => {
-       closeBtn.onclick = () => handleDisplayModal();
+        closeBtn.onclick = () => handleDisplayModal();
     });
 
     window.onclick = (e) => {
-      if (e.target === modal) {
-          hideModal();
-      }
+        if (e.target === modal) {
+            hideModal();
+        }
     };
 </script>
 </body>
